@@ -1,0 +1,9 @@
+name: ZombiezTD
+author: Blaxcraft
+version: 1.0
+main: net.mcshockwave.ZTD.Zombiez
+commands:
+   zom:
+   leave:
+   start:
+   info:
