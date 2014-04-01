@@ -47,35 +47,35 @@ public enum Games {
 		new Location(Zombiez.w, 283, 110, -297),
 		new Location(Zombiez.w, 280, 113, -292),
 		new Location(Zombiez.w, 290, 110, -293),
-		new Location(Zombiez.w, -25, 102, 7)),
+		new Location(Zombiez.w, -27, 102, 7)),
 	Grasslands(
 		Material.GRASS,
 		new Location(Zombiez.w, 279, 130, -37),
 		new Location(Zombiez.w, 275, 122, -30),
 		new Location(Zombiez.w, 260, 118, 20),
 		new Location(Zombiez.w, 279, 119, -37),
-		new Location(Zombiez.w, -26, 102, 7)),
+		new Location(Zombiez.w, -25, 102, 7)),
 	Ice(
 		Material.SNOW_BLOCK,
 		new Location(Zombiez.w, 291, 117, 277),
 		new Location(Zombiez.w, 295, 112, 283),
 		new Location(Zombiez.w, 291, 106, 280),
 		new Location(Zombiez.w, 291, 110, 279),
-		new Location(Zombiez.w, -27, 102, 7)),
+		new Location(Zombiez.w, -26, 102, 7)),
 	Nether(
 		Material.NETHERRACK,
 		new Location(Zombiez.w, -240, 127, -223),
 		new Location(Zombiez.w, -232, 117, -228),
 		new Location(Zombiez.w, -204, 117, -228),
 		new Location(Zombiez.w, -241, 114, -222),
-		new Location(Zombiez.w, -28, 102, 7)),
+		new Location(Zombiez.w, -29, 102, 7)),
 	End(
 		Material.OBSIDIAN,
 		new Location(Zombiez.w, 15, 137, 287),
 		new Location(Zombiez.w, 11, 125, 295),
 		new Location(Zombiez.w, 44, 122, 295),
 		new Location(Zombiez.w, 15, 119, 287),
-		new Location(Zombiez.w, -29, 102, 7)),
+		new Location(Zombiez.w, -28, 102, 7)),
 
 	// MEDIUM
 	Lab(
