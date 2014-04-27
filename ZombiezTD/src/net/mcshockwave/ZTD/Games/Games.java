@@ -284,6 +284,7 @@ public enum Games {
 	BukkitTask							vil, reg;
 	HashMap<LivingEntity, BukkitTask>	tow	= new HashMap<LivingEntity, BukkitTask>();
 
+	@SuppressWarnings("deprecation")
 	public void start() {
 		final Score[] sc = new Score[4];
 
@@ -416,6 +417,7 @@ public enum Games {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public void nextWave() {
 		votes = 0;
 		voted.clear();
@@ -581,6 +583,7 @@ public enum Games {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public void addMoney(int amount, Player p) {
 		int c = cash.get(p) + amount;
 		cash.remove(p);
@@ -664,6 +667,7 @@ public enum Games {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void throwBlock(Location loc, Material m, Vector v, final int damage) {
 		final FallingBlock fb = loc.getWorld().spawnFallingBlock(loc, m, (byte) 0);
 		fb.setVelocity(v);

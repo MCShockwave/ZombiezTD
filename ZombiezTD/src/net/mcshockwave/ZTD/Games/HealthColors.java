@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.UUID;
 
 import net.mcshockwave.MCS.Utils.ItemMetaUtils;
-import net.minecraft.server.v1_7_R1.AttributeInstance;
-import net.minecraft.server.v1_7_R1.AttributeModifier;
-import net.minecraft.server.v1_7_R1.EntityLiving;
-import net.minecraft.server.v1_7_R1.GenericAttributes;
+import net.minecraft.server.v1_7_R2.AttributeInstance;
+import net.minecraft.server.v1_7_R2.AttributeModifier;
+import net.minecraft.server.v1_7_R2.EntityLiving;
+import net.minecraft.server.v1_7_R2.GenericAttributes;
 
 import org.bukkit.Color;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_7_R1.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_7_R2.entity.CraftLivingEntity;
 import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
