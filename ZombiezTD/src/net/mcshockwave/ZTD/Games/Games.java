@@ -432,10 +432,10 @@ public enum Games {
 		}
 	}
 
-	public Zombie spawnZombie(Location l, int health, Type... types) {
+	public Zombie spawnZombie(Location l, double health, Type... types) {
 		Zombie z = (Zombie) l.getWorld().spawnEntity(l, EntityType.ZOMBIE);
 		zombies.add(z);
-		health -= (int) (getMaxPercentDec(LabItem.Big_Bloon_Sabotage) * health);
+		health -= getMaxPercentDec(LabItem.Big_Bloon_Sabotage) * health;
 		z.setMaxHealth(health);
 		z.setHealth(health);
 		z.getEquipment().clear();
@@ -446,8 +446,8 @@ public enum Games {
 			if (t == null)
 				continue;
 			t.setType(z);
-			HealthColors.update(z);
 		}
+		HealthColors.update(z);
 
 		return z;
 	}
