@@ -563,7 +563,7 @@ public enum Games {
 				if (es.size() > 0) {
 					for (int i = 0; i < es.size(); i++) {
 						Zombie z = es.get(i);
-						if (z.getEyeLocation().distance(le.getEyeLocation()) <= r) {
+						if (z.getEyeLocation().distanceSquared(le.getEyeLocation()) <= r * r) {
 							if (!z.isDead() && z.isValid() && zombies.contains(z)) {
 								if (!Type.CAMO.isType(z) || t.canSeeCamo(g, le)) {
 									t.onTowerTarget(le, g, z);
