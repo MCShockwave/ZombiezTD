@@ -378,7 +378,7 @@ public enum Games {
 	}
 
 	public void onWaveEnd() {
-		if (wave < getMaxWave() + 1) {
+		if (wave < getMaxWave()) {
 			addMoney(Wave.valueOf("w" + wave).cash);
 			sendToAll("Wave", "Wave " + wave + " ended!");
 			sendToAll("Vote", "Type /start to vote to start the next wave");
@@ -390,17 +390,13 @@ public enum Games {
 	}
 
 	public int getDifficulty() {
-		for (int i = 0; i < Games.values().length; i++) {
-			Games g = Games.values()[i];
-			if (g == this) {
-				if (i >= 0 && i <= 4) {
-					return 1;
-				} else if (i >= 5 && i <= 9) {
-					return 2;
-				} else if (i >= 10 && i <= 14) {
-					return 3;
-				}
-			}
+		int i = ordinal();
+		if (i >= 0 && i <= 4) {
+			return 1;
+		} else if (i >= 5 && i <= 9) {
+			return 2;
+		} else if (i >= 10 && i <= 14) {
+			return 3;
 		}
 		return 0;
 	}
