@@ -295,6 +295,8 @@ public enum Tower {
 							if (g.zombies.contains(z)) {
 								z.teleport(g.zombie);
 								to.getWorld().playEffect(to, Effect.ENDER_SIGNAL, 0);
+								g.zombies.remove(z);
+								g.zombies.add(z);
 								if (hasTT) {
 									z.damage(1, le);
 								}
