@@ -221,15 +221,16 @@ public enum Tower {
 		final Location to = target.getEyeLocation();
 		Vector v = new Vector(to.getX() - ta.getX(), to.getY() - ta.getY(), to.getZ() - ta.getZ());
 		v = v.add(new Vector(0, ta.distance(to) / 20, 0));
+		Vector add = v.clone().multiply(v.normalize());
 		if (this == Skeleton) {
 			int damage = hasUpgrade(g, le, 2, 4) ? 100 : hasUpgrade(g, le, 2, 3) ? 18 : hasUpgrade(g, le, 2, 2) ? 3
 					: (hasUpgrade(g, le, 2, 1) ? 2 : 1);
 			if (hasUpgrade(g, le, 2, 3)) {
 				for (int i = 0; i < 3; i++) {
-					Games.launchArrow(g, ta.add(v.multiply(0.5)), v, 1, 25, damage);
+					Games.launchArrow(g, ta.add(add), v, 1, 25, damage);
 				}
 			} else {
-				Games.launchArrow(g, ta.add(v.multiply(0.5)), v, 1, 1, damage);
+				Games.launchArrow(g, ta.add(add), v, 1, 1, damage);
 			}
 		}
 		if (this == Bomb_Tower) {
@@ -274,13 +275,12 @@ public enum Tower {
 				boolean hasTT = hasUpgrade(g, le, 1, 4);
 				if (!hasUpgrade(g, le, 1, 3) || rand.nextInt(hasTT ? 12 : 20) != 1) {
 					if (hasUpgrade(g, le, 2, 1)) {
-						Fireball fire = (Fireball) le.getWorld().spawnEntity(ta.add(v.multiply(0.6)),
-								EntityType.FIREBALL);
+						Fireball fire = (Fireball) le.getWorld().spawnEntity(ta.add(add), EntityType.FIREBALL);
 						fire.setDirection(v);
 						fire.setIsIncendiary(false);
 						fire.setVelocity(v);
 					} else {
-						SmallFireball fire = (SmallFireball) le.getWorld().spawnEntity(ta.add(v.multiply(0.6)),
+						SmallFireball fire = (SmallFireball) le.getWorld().spawnEntity(ta.add(add),
 								EntityType.SMALL_FIREBALL);
 						fire.setDirection(v);
 						fire.setIsIncendiary(false);
@@ -362,11 +362,11 @@ public enum Tower {
 				boolean pb = hasUpgrade(g, le, 1, 2);
 				if (pb) {
 					boolean sg = hasUpgrade(g, le, 1, 3);
-					Games.sprayBlocks(ta.add(v.multiply(0.1)), sg ? Material.LAVA : Material.WATER,
-							v.normalize().setY(0.1), sg ? 18 : 12, 1, 1, sg ? 10 : 7, 25);
+					Games.sprayBlocks(ta.add(add), sg ? Material.LAVA : Material.WATER, v.normalize().setY(0.1),
+							sg ? 18 : 12, 1, 1, sg ? 10 : 7, 25);
 				} else {
 					boolean lb = hasUpgrade(g, le, 1, 1);
-					Arrow a = Games.launchArrow(g, ta.add(v.multiply(0.5)), v, 2F, 1, lb ? 6 : 3);
+					Arrow a = Games.launchArrow(g, ta.add(add), v, 2F, 1, lb ? 6 : 3);
 					if (lb) {
 						a.setFireTicks(1000);
 					}
@@ -442,7 +442,7 @@ public enum Tower {
 		if (this == Ninja_Skeleton) {
 			int damage = hasUpgrade(g, le, 1, 2) ? 4 : 2;
 			for (int i = 0; i < (hasUpgrade(g, le, 1, 4) ? 5 : hasUpgrade(g, le, 1, 3) ? 2 : 1); i++) {
-				Games.launchArrow(g, ta.add(v.multiply(0.5)), v, 1.8F, hasUpgrade(g, le, 2, 1) ? 5 : 20, damage);
+				Games.launchArrow(g, ta.add(add), v, 1.8F, hasUpgrade(g, le, 2, 1) ? 5 : 20, damage);
 			}
 			if (hasUpgrade(g, le, 2, 2)) {
 				target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 50, 25));
