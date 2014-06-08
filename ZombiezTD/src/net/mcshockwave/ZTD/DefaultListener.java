@@ -93,14 +93,18 @@ public class DefaultListener implements Listener {
 			int lvl = SQLTable.Zombiez.getInt("Username", p.getName(), li.sql);
 
 			if (li.isAnotherLevel(p)) {
-
 				i.setItem(slot, ItemMetaUtils.setLore(ItemMetaUtils.setItemName(new ItemStack(Material.WOOL, 1,
 						(short) (cgn ? 5 : 14)), ChatColor.GOLD + li.name().replace('_', ' ')), ChatColor.DARK_AQUA
 						+ li.desc.replace("%p", li.getPercent(lvl + 1) + ""),
 						ChatColor.AQUA + "Cost: " + li.getUpgradeCost(p), "",
 						ChatColor.YELLOW + "Current: " + li.getPercent(lvl), "", cgn ? ChatColor.GREEN + "Click to buy"
 								: ChatColor.RED + "Not enough credits!"));
-
+			} else {
+				i.setItem(slot, ItemMetaUtils.setLore(
+						ItemMetaUtils.setItemName(new ItemStack(Material.WOOL, 1, (short) 4), ChatColor.GOLD
+								+ li.name().replace('_', ' ')),
+						ChatColor.DARK_AQUA + li.desc.replace("%p", li.getPercent(lvl + 1) + ""), "", ChatColor.YELLOW
+								+ "Current: " + li.getPercent(lvl)));
 			}
 		}
 
@@ -437,11 +441,15 @@ public class DefaultListener implements Listener {
 					if (li != null && LevelManager.getCredits(p) >= li.getUpgradeCost(p)) {
 
 						int cost = li.getUpgradeCost(p);
-						LevelManager.addCredits(p, -cost);
-						li.setUpgrade(p, SQLTable.Zombiez.getInt("Username", p.getName(), li.sql) + 1);
+						if (cost > -1) {
+							LevelManager.addCredits(p, -cost);
+							li.setUpgrade(p, SQLTable.Zombiez.getInt("Username", p.getName(), li.sql) + 1);
 
-						p.sendMessage(ChatColor.DARK_AQUA + "Bought " + li.name().replace('_', ' ') + " for " + cost
-								+ " credits!");
+							p.sendMessage(ChatColor.DARK_AQUA + "Bought " + li.name().replace('_', ' ') + " for "
+									+ cost + " credits!");
+						} else {
+							p.sendMessage("§3That item is fully upgraded!");
+						}
 						// p.closeInventory();
 
 					}
