@@ -308,6 +308,20 @@ public enum Games {
 			cash.put(p, getStartingCash(p));
 			p.getScoreboard().getObjective(DisplaySlot.SIDEBAR)
 					.getScore(Bukkit.getOfflinePlayer(ChatColor.LIGHT_PURPLE + "Cash")).setScore(getStartingCash(p));
+
+			for (Entity e : p.getNearbyEntities(100, 100, 100)) {
+				boolean in = false;
+				for (Games g : Games.values()) {
+					if (g.zombies.contains(e) || g.v == e) {
+						in = true;
+						continue;
+					}
+				}
+
+				if (!in && e instanceof LivingEntity && !(e instanceof Player)) {
+					e.remove();
+				}
+			}
 		}
 
 		sendToAll("Game", "Game started!");

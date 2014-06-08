@@ -262,9 +262,11 @@ public class DefaultListener implements Listener {
 
 	public void onQuit(Player p) {
 		Games ga = Games.getGame(p);
-		ga.players.remove(p);
-		ga.sendToAll("Quit", p.getName() + " has quit");
-		ga.onLeave(p);
+		if (ga != null) {
+			ga.players.remove(p);
+			ga.sendToAll("Quit", p.getName() + " has quit");
+			ga.onLeave(p);
+		}
 	}
 
 	@EventHandler

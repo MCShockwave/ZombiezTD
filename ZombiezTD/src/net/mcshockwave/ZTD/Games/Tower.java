@@ -221,7 +221,7 @@ public enum Tower {
 		final Location to = target.getEyeLocation();
 		Vector v = new Vector(to.getX() - ta.getX(), to.getY() - ta.getY(), to.getZ() - ta.getZ());
 		v = v.add(new Vector(0, ta.distance(to) / 20, 0));
-		Vector add = v.clone().multiply(v.normalize());
+		Vector add = v.normalize().multiply(1.5);
 		if (this == Skeleton) {
 			int damage = hasUpgrade(g, le, 2, 4) ? 100 : hasUpgrade(g, le, 2, 3) ? 18 : hasUpgrade(g, le, 2, 2) ? 3
 					: (hasUpgrade(g, le, 2, 1) ? 2 : 1);
