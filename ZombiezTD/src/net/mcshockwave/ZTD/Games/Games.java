@@ -159,26 +159,29 @@ public enum Games {
 
 	public List<Zombie>							zombies;
 	public Villager								v;
-	public Objective[]							o				= new Objective[4];
+	public Objective[]							o					= new Objective[4];
 
 	public HashMap<LivingEntity, Location>		towerLoc;
 	public HashMap<LivingEntity, Tower>			towers;
 
 	public HashMap<LivingEntity, Integer>		upg1, upg2;
 
-	public HashMap<Player, Integer>				cash			= new HashMap<Player, Integer>();
+	public HashMap<Player, Integer>				cash				= new HashMap<Player, Integer>();
 
-	public static HashMap<Projectile, Integer>	dmg				= new HashMap<Projectile, Integer>();
+	public static HashMap<Projectile, Integer>	dmg					= new HashMap<Projectile, Integer>();
 
-	public HashMap<LivingEntity, Player>		towOwn			= new HashMap<LivingEntity, Player>();
+	public HashMap<LivingEntity, Player>		towOwn				= new HashMap<LivingEntity, Player>();
 
 	public Material								place;
 
-	public BukkitTask							wtas			= null, wtas2 = null;
+	public BukkitTask							wtas				= null, wtas2 = null;
 
-	public Random								rand			= new Random();
+	public Random								rand				= new Random();
 
-	public long									lastSaboTime	= 0;
+	public long									lastSaboTime		= 0;
+
+	public int									wave_i				= 0;
+	public boolean								wave_isInProgress	= false;
 
 	private Games(Material place, Location lob, Location spawn, Location villager, Location zombie, Location... signs) {
 		this.players = new ArrayList<Player>();
@@ -445,7 +448,7 @@ public enum Games {
 	public Zombie spawnZombie(Location l, double health, Type... types) {
 		Zombie z = (Zombie) l.getWorld().spawnEntity(l, EntityType.ZOMBIE);
 		zombies.add(z);
-		health -= getMaxPercentDec(LabItem.Big_Bloon_Sabotage) * health;
+		health -= (int) (getMaxPercentDec(LabItem.Big_Bloon_Sabotage) * health);
 		z.setMaxHealth(health);
 		z.setHealth(health);
 		z.getEquipment().clear();
