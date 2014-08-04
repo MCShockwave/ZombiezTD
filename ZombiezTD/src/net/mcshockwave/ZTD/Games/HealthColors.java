@@ -1,20 +1,20 @@
 package net.mcshockwave.ZTD.Games;
 
-import java.util.List;
-import java.util.UUID;
-
 import net.mcshockwave.MCS.Utils.ItemMetaUtils;
-import net.minecraft.server.v1_7_R2.AttributeInstance;
-import net.minecraft.server.v1_7_R2.AttributeModifier;
-import net.minecraft.server.v1_7_R2.EntityLiving;
-import net.minecraft.server.v1_7_R2.GenericAttributes;
+import net.minecraft.server.v1_7_R4.AttributeInstance;
+import net.minecraft.server.v1_7_R4.AttributeModifier;
+import net.minecraft.server.v1_7_R4.EntityLiving;
+import net.minecraft.server.v1_7_R4.GenericAttributes;
 
 import org.bukkit.Color;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_7_R2.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftLivingEntity;
 import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
+import java.util.UUID;
 
 public enum HealthColors {
 

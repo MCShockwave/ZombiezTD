@@ -78,7 +78,6 @@ public class DefaultListener implements Listener {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	public void updateLabInterface(Player p, Inventory i) {
 		int cred = LevelManager.getCredits(p);
 		i.setItem(
