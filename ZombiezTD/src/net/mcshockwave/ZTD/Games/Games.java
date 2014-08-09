@@ -1,10 +1,5 @@
 package net.mcshockwave.ZTD.Games;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-
 import net.mcshockwave.MCS.Utils.ItemMetaUtils;
 import net.mcshockwave.ZTD.LabItem;
 import net.mcshockwave.ZTD.LevelManager;
@@ -36,6 +31,11 @@ import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.util.Vector;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 public enum Games {
 	// Place, lobby, spawn, villager, zombie, signs...

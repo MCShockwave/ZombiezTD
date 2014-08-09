@@ -1,7 +1,5 @@
 package net.mcshockwave.ZTD;
 
-import java.util.HashMap;
-
 import net.mcshockwave.MCS.SQLTable;
 import net.mcshockwave.MCS.Utils.ItemMetaUtils;
 import net.mcshockwave.ZTD.Games.Games;
@@ -52,6 +50,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
+
+import java.util.HashMap;
 
 public class DefaultListener implements Listener {
 
