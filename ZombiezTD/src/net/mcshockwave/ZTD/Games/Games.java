@@ -137,7 +137,7 @@ public enum Games {
 		new Location(Zombiez.w, 478, 89, 7),
 		new Location(Zombiez.w, -27, 102, -7)),
 	Kino(
-		Material.HARD_CLAY,
+		Material.STAINED_CLAY,
 		new Location(Zombiez.w, -1, 90, 520),
 		new Location(Zombiez.w, -3, 86, 527),
 		new Location(Zombiez.w, -10, 83, 471),
